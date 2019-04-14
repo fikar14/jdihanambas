@@ -1,0 +1,29 @@
+.navbar{
+    z-index: 0;
+}
+
+#admin-slideout-button{
+    transition: all 0.3s ease-in;
+    &.is-active{
+        transition: all 0.3s ease-in;
+        transform: rotateY(180deg);
+    }
+}
+
+@include desktop{
+    .navbar {
+        position: relative;
+        height: 4.6rem;
+        box-shadow: 0 0 8px 0 rgba(255, 0, 0, 0.404);
+        z-index: 0;
+    
+        .navbar-brand{
+            margin-left: 100px;
+        }
+        .navbar-menu{
+            margin-right: 100px;
+        }
+    }
+}
+
+
