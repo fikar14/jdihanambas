@@ -12240,7 +12240,7 @@ label.panel-block:hover {
     position: relative;
     height: 4.6rem;
     box-shadow: 0 0 8px 0 rgba(255, 0, 0, 0.404);
-    z-index: 0;
+    z-index: 1;
   }
   .navbar .navbar-brand {
     margin-left: 100px;
@@ -12249,6 +12249,12 @@ label.panel-block:hover {
     margin-right: 100px;
   }
 }
+#dark-footer {
+  max-height: 280px;
+  background-color: #344258;
+  color: whitesmoke;
+}
+
 #admin-side-menu {
   position: fixed;
   height: 100%;
@@ -12264,7 +12270,7 @@ label.panel-block:hover {
   transition: all 0.3s ease;
   position: fixed;
   height: 100%;
-  width: 300px;
+  width: 365px;
   background-color: #344258;
   margin-top: -100px;
   margin-left: 0px;
@@ -12280,7 +12286,7 @@ label.panel-block:hover {
 }
 @media screen and (min-width: 1088px) {
   #admin-side-menu .side-menu .menu-label {
-    font-size: 20px;
+    font-size: 24px;
   }
   #admin-side-menu .side-menu strong {
     font-family: "Oswald";

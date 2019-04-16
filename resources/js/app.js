@@ -10,9 +10,8 @@ import Buefy from 'buefy';
 
 Vue.use(Buefy);
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('home', require('./components/Home.vue').default);
 
-var app = new Vue({
-    el:'#app',
-    data: {}
-})
+const app = new Vue({
+    el: '#app'
+});

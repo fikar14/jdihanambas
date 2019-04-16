@@ -12,7 +12,7 @@
         transition: all 0.3s ease;
         position: fixed;
         height: 100%;
-        width: 300px;
+        width: 365px;
         background-color: #344258;
         margin-top: -100px;
         margin-left: 0px;
@@ -28,7 +28,7 @@
     @include desktop{
         .side-menu{
             .menu-label{
-                font-size: 20px;
+                font-size: 24px;
             }
         }
         .side-menu strong{

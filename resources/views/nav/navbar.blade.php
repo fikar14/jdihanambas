@@ -2,8 +2,8 @@
     <div class="column">
         <nav class="navbar is-link" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" width="180">
+            <a class="navbar-item" href="/">
+            <img src="{{ asset('images/smart-anambas.png') }}" width="240">
             </a>
             <a class="navbar-item" id="admin-slideout-button">
                 <span class="icon"><i class="fa fa-arrow-alt-circle-right"></i></span>
@@ -22,46 +22,72 @@
 
             <a class="navbar-item" href="{{ route('home') }}">
                 <span class="icon"><i class="fa fa-home"></i></span>
-                <span>Home</span>
+                <span>Beranda</span>
             </a>
 
             <a class="navbar-item">
                 <span class="icon"><i class="fa fa-users"></i></span>
-                <span>Profile</span> 
+                <span>Profil</span> 
             </a>
 
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">
-                <span class="icon"><i class="fa fa-newspaper"></i></span>
-                <span>News</span> 
+                    <span class="icon"><i class="fa fa-newspaper"></i></span>
+                    <span>Berita</span> 
                 </a>
 
                 <div class="navbar-dropdown">
-                <a class="navbar-item">
-                    About
-                </a>
-                <a class="navbar-item">
-                    Jobs
-                </a>
-                <a class="navbar-item">
-                    Contact
-                </a>
-                <hr class="navbar-divider">
-                <a class="navbar-item">
-                    Report an issue
-                </a>
+                    <a class="navbar-item">
+                        About
+                    </a>
+                    <a class="navbar-item">
+                        Jobs
+                    </a>
+                    <a class="navbar-item">
+                        Contact
+                    </a>
+                    <hr class="navbar-divider">
+                    <a class="navbar-item">
+                        Report an issue
+                    </a>
                 </div>
             </div>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    <span class="icon"><i class="fa fa-book"></i></span>
+                    <span>Sakip</span> 
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a class="navbar-item">
+                        Rencana Strategis
+                    </a>
+                    <a class="navbar-item">
+                        Indikator Kinerja Utama
+                    </a>
+                    <a class="navbar-item">
+                        Perjanjian Kerja
+                    </a>
+                    <a class="navbar-item">
+                        Lakip
+                    </a>
+                </div>
             </div>
+            <a class="navbar-item">
+                <span class="icon"><i class="far fa-envelope"></i></span>
+                <span>Kontak</span> 
+            </a>
+        </div>
 
             <div class="navbar-end">
             <div class="navbar-item">
                 @if (Auth::guest())
                     <div class="buttons">
-                        <a class="button is-primary" href="{{ route('register') }}">
+                        <a class="button is-success is-outlined is-rounded" href="{{ route('register') }}">
                             <strong>Register</strong>
                         </a>
-                        <a class="button is-light" href="{{ route('login') }}">
+                        <a class="button is-light is-rounded" href="{{ route('login') }}">
                             Log in
                         </a>
                     </div>

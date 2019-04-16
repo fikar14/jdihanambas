@@ -1,7 +1,7 @@
 <template>
     <div class="columns">
-        <div class="column is-8 is-offset-1">
-            <h1 class="is-size-1">Boleh apa aja</h1>
+        <div class="column is-12">
+            <h1 class="is-size-1">Component Home Vue JS</h1>
         </div>
     </div>
 </template>

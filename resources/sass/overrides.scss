@@ -1,3 +1,4 @@
+// NAVBAR MENU 
 .navbar{
     z-index: 0;
 }
@@ -15,7 +16,7 @@
         position: relative;
         height: 4.6rem;
         box-shadow: 0 0 8px 0 rgba(255, 0, 0, 0.404);
-        z-index: 0;
+        z-index: 1;
     
         .navbar-brand{
             margin-left: 100px;
@@ -26,4 +27,10 @@
     }
 }
 
+// FOOTER
+#dark-footer {
+    max-height: 280px;
+    background-color: #344258;
+    color: whitesmoke;
+}
 
