@@ -12237,16 +12237,8 @@ label.panel-block:hover {
 
 @media screen and (min-width: 1088px) {
   .navbar {
-    position: relative;
-    height: 4.6rem;
-    box-shadow: 0 0 8px 0 rgba(255, 0, 0, 0.404);
+    box-shadow: 0 0 8px 0 rgba(68, 67, 67, 0.404);
     z-index: 1;
-  }
-  .navbar .navbar-brand {
-    margin-left: 100px;
-  }
-  .navbar .navbar-menu {
-    margin-right: 100px;
   }
 }
 #dark-footer {
@@ -12307,4 +12299,15 @@ label.panel-block:hover {
 
 .menu-list li ul {
   margin: 0;
+}
+
+#admin-manage {
+  position: fixed;
+  height: 100vh;
+  width: 200px;
+  background-color: #344258;
+  margin-top: 30px;
+  overflow-y: auto;
+  color: white;
+  z-index: 0;
 }

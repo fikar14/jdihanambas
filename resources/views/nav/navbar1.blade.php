@@ -3,7 +3,7 @@
         <nav class="navbar is-link is-fixed-top" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
-            <img src="{{ asset('images/smart-anambas.png') }}" width="180">
+            <img src="{{ asset('images/smart-anambas.png') }}" width="240">
             </a>
             <a class="navbar-item" id="admin-slideout-button">
                 <span class="icon"><i class="fa fa-arrow-alt-circle-right"></i></span>

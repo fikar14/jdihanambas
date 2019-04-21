@@ -64639,10 +64639,9 @@ __webpack_require__(/*! @fortawesome/fontawesome-free-brands */ "./node_modules/
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 Vue.use(buefy__WEBPACK_IMPORTED_MODULE_0___default.a);
-Vue.component('home', __webpack_require__(/*! ./components/Home.vue */ "./resources/js/components/Home.vue")["default"]);
-var app = new Vue({
-  el: '#app'
-});
+Vue.component('home', __webpack_require__(/*! ./components/Home.vue */ "./resources/js/components/Home.vue")["default"]); // const app = new Vue({
+//     el: '#app'
+// });
 
 /***/ }),
 
@@ -64789,8 +64788,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\myCMS-Theme-with-Laravel-Vuejs\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\myCMS-Theme-with-Laravel-Vuejs\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\myTheme\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\myTheme\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
