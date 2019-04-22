@@ -11,6 +11,14 @@
         background-color: #fdfd96;
         padding: 3px 5px;
     }
+    .input{
+        width: auto;
+    }
+    .url-wrapper{
+        height: 30px;
+        display: flex;
+        align-items: center;
+    }
 </style>
 
 <template>
@@ -20,11 +28,13 @@
         </div>
 
         <div class="url-wrapper wrapper">
-            <span class="root-url">{{url}}</span><span class="slug">{{slug}}</span>
+            <span class="root-url">{{url}}</span><span class="slug" v-show="slug && !isEditing">{{slug}}</span><input type="text" name="slug-edit" class="input is-small" v-show="isEditing" v-model="customSlug">
         </div>
 
         <div class="button-wrapper wrapper">
-            <button class="button is-small">Edit</button>
+            <button class="button is-small" v-show="!isEditing" @click.prevent="editSlug">Edit</button>
+            <button class="button is-small" v-show="isEditing" @click.prevent="saveSlug">Save</button>
+            <button class="button is-small" v-show="isEditing" @click.prevent="resetSlug">Reset</button>
         </div>
     </div>
 </template>
@@ -43,17 +53,38 @@
         },
         data: function(){
             return {
-                slug: this.convetTitle()
+                slug: this.convetTitle(),
+                isEditing: false,
+                customSlug: '',
+                wasEdited: false
             }
         },
         methods: {
             convetTitle: function(){
                 return Slug(this.title)
+            },
+            editSlug: function(){
+                this.customSlug = this.slug
+                this.isEditing = true
+            },
+            saveSlug: function(){
+                if(this.costumSlug !== this.slug) this.wasEdited = true
+                this.slug = Slug(this.customSlug)
+                this.isEditing = false
+            },
+            resetSlug: function(){
+                this.slug = this.convetTitle()
+                this.wasEdited = false
+                this.isEditing = false
             }
         },
         watch: {
             title: function(){
+                if(this.wasEdited === false)
                 this.slug = this.convetTitle()
+            },
+            slug: function(val){
+                this.$emit('slug-changed', val)
             }
         }
     }

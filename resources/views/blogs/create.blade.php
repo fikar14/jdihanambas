@@ -10,10 +10,12 @@
                     <div class="column is-9 m-l-15">
                         <form action="{{ route('blog.store') }}" method="POST">
                             @csrf
-                            <b-field>
-                                <b-input placeholder="Title" size="is-large" type="text" v-model="title"></b-input>
-                            </b-field>
-                            <slug-widget url="{{url('/blog')}}/" :title="title"></slug-widget>
+                            <div class="field">
+                                <div class="control is-large">
+                                    <input class="input is-large" type="text" placeholder="Title" v-model="title">
+                                </div>
+                            </div>
+                            <slug-widget url="{{url('/blog')}}/" :title="title" @slug-changed="updateSlug"></slug-widget>
                             <br>
                             <b-field>
                                 <b-input type="textarea"
@@ -67,7 +69,13 @@
         var app= new Vue({
             el:'#app',
             data: {
-                title: ''
+                title: '',
+                slug: ''
+            },
+            methods: {
+                updateSlug: function(val){
+                    this.slug = val;
+                }
             }
         });
     </script>
