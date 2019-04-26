@@ -70,7 +70,8 @@
             el:'#app',
             data: {
                 title: '',
-                slug: ''
+                slug: '',
+                // api_token: '{{Auth::user()}}'
             },
             methods: {
                 updateSlug: function(val){

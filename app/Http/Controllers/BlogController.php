@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Blog;
 
 class BlogController extends Controller
 {
@@ -80,5 +81,10 @@ class BlogController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function apiCheckUnique(Request $request) 
+    {
+        return json_encode(!Blog::where('slug', '=', $request->slug)->exists());
     }
 }
