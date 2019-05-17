@@ -5,9 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\User;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use Session;
 
 class UserController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +40,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $role = Role::orderBy('name', 'ASC')->get();
+        return view('users.create', compact('role'));
     }
 
     /**
@@ -39,29 +53,39 @@ class UserController extends Controller
     public function store(Request $request)
     {
         \Validator::make($request->all(),[
-        "name" => "required|min:5|max:100",
-        "username" => "required|min:5|max:20",
+        "name" => "required|min:4|max:100",
+        "username" => "required|min:4|max:20",
         "email" => "required|email|unique:users",
         "password" => "required",
         ])->validate();
 
-        $new_user = new User;
-        $new_user->name = $request->get('name');
-        $new_user->username = $request->get('username');
-        $new_user->email = $request->get('email');
-        $new_user->bio = $request->get('bio');
-        $new_user->address = $request->get('address');
-        $new_user->phone = $request->get('phone');
-        $new_user->password = \Hash::make($request->get('password'));
+        $user = User::firstOrCreate([
+            'email' => $request->email
+        ], [
+            'name' => $request->name,
+            'username' => $request->username,
+            'password' => bcrypt($request->password),
+        ]);
+
+        // $user = new User;
+        // $user->name = $request->get('name');
+        // $user->username = $request->get('username');
+        // $user->email = $request->get('email');
+        // $user->bio = $request->get('bio');
+        // $user->address = $request->get('address');
+        // $user->phone = $request->get('phone');
+        // $user->password = \Hash::make($request->get('password'));
         
-        if($request->file('avatar')){
-            $file = $request->file('avatar')->store('avatars', 'public');
-            $new_user->avatar = $file;
-            }
+        // if($request->file('avatar')){
+        //     $file = $request->file('avatar')->store('avatars', 'public');
+        //     $user->avatar = $file;
+        //     }
+    
+        // $user->save();
+        
+        $user->assignRole($request->role);
 
-        $new_user->save();
-
-        return redirect()->route('users.index')->with('status', 'User successfully created.');
+        return redirect(route('users.index'))->with(['success' => 'User: <strong>' . $user->name . '</strong> berhasil ditambahkan']);
     }
 
     /**

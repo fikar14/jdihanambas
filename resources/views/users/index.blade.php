@@ -1,5 +1,9 @@
 @extends('layouts.manage')
 
+@section('title')
+    Manajemen User
+@endsection
+
 @section('content')
 
     <div class="flex-container">
@@ -12,14 +16,14 @@
         
             <div class="card m-b-10">
                 <div class="card-content">
-                    <table class="table is-narrow">
+                    <table class="table is-narrow is-fullwidth">
                         <thead>
                             <tr>
                                 <th>id</th>
                                 <th>Nama</th>
                                 <th>Username</th>
                                 <th>Email</th>
-                                <th>Address</th>
+                                <th>Role</th>
                                 <th>Phone</th>
                                 <th>Avatar</th>
                                 <th>Status</th>
@@ -33,7 +37,11 @@
                                 <td><a href="{{route('users.show', ['id' => $user->id])}}">{{ $user->name }}</a></td>
                                 <td>{{ $user->username }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->address }}</td>
+                                <td>
+                                    @foreach ($user->getRoleNames() as $role)
+                                        {{ $role }}
+                                    @endforeach
+                                </td>
                                 <td>{{ $user->phone }}</td>
                                 <td>
                                     @if($user->avatar)
@@ -44,12 +52,18 @@
                                 </td>
                                 <td>{{ $user->status }}</td>
                                 <td>
-                                    {{-- <a href="{{route('users.edit', ['id' => $user->id])}}" class="button is-link is-small"><i class="fas fa-edit"></i></a> --}}
-                                    <form action="{{route('users.destroy', ['id' => $user->id ])}}" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <button class="button is-danger is-small"><i class="fas fa-trash-alt"></i></button>
-                                    </form>
+                                    <div class="columns">
+                                        <div class="column is-1 m-r-15">
+                                            <a class="button is-success is-small" href="{{route('users.show', ['id'=>$user->id])}}"><i class="fas fa-eye"></i></a>
+                                        </div>
+                                        <div class="column is-1">
+                                            <form action="{{route('users.destroy', ['id' => $user->id ])}}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button class="button is-danger is-small"><i class="fas fa-trash-alt"></i></button>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr> 
                             @endforeach

@@ -4,9 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Blog;
+use Session;
 
 class BlogController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +46,34 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        \Validator::make($request->all(),[
+            "title" => "required|min:5|max:100",
+            "slug" => "required|unique:users",
+            "blog" => "required",
+            "cover" => "required",
+            ])->validate();
+
+        $blog = new Blog;
+        $blog->title = $request->get('title');
+        $blog->slug = $request->get('slug');
+        $blog->blog = $request->get('blog');
+
+        $cover = $request->file('cover');
+
+        if($cover){
+            $cover_path = $cover->store('book-covers', 'public');
+            $blog->cover = $cover_path;
+        }
+
+        if($request->get('save_action') == 'PUBLISH'){
+        return redirect()
+            ->route('blogs.create')
+            ->with('status', 'Book successfully saved and published');
+        } else {
+        return redirect()
+            ->route('blogs.create')
+            ->with('status', 'Book saved as draft');
+        }
     }
 
     /**

@@ -1,5 +1,9 @@
 @extends('layouts.manage')
 
+@section('title')
+    Manajemen Blog Posts
+@endsection
+
 @section('content')
 
     <div class="columns">

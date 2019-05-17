@@ -23,6 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // auth()->user()->givePermissionTo('create users');
+        // auth()->user()->assignRole('SuperAdministrator');
         return view('home');
     }
 }

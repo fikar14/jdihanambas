@@ -21,7 +21,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/blog', 'BlogController');
 
-Route::prefix('manage')->group(function() {
+Route::group(['prefix' => 'manage',  'middleware' => ['role:SuperAdministrator']], function() {
     Route::resource('users', 'UserController');
-    Route::resource('roles', 'RoleController');
+    Route::resource('roles', 'RoleController')->except([
+        'create'
+    ]);
+    Route::resource('permissions', 'PermissionController')->except([
+        'edit', 'show', 'update'
+    ]);
 });

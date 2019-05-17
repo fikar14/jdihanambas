@@ -15,27 +15,23 @@
     const ModalForm = {
         props: ['role', 'role-route'],
         template: `
+            <form @submit.prevent="addPost">
                 <div class="modal-card" style="width: 640">
                     <header class="modal-card-head">
-                        <p class="modal-card-title">Create New Role</p>
+                        <p class="modal-card-title">Create New Rule</p>
                     </header>
                     <section class="modal-card-body">
                         <b-field label="Role">
-                            <b-input
-                                type="text"
-                                id="name"
-                                name="name"
-                                v-model="role.name"
-                                placeholder="Your role"
-                                required>
-                            </b-input>
+                            <b-input v-model="name" name="name" id="name"></b-input>
                         </b-field>
+
                     </section>
                     <footer class="modal-card-foot">
                         <button class="button" type="button" @click="$parent.close()">Close</button>
-                        <button class="button is-primary" @click="createRole()">Create</button>
+                        <button class="button is-primary">Create</button>
                     </footer>
                 </div>
+            </form>
         `
     }
 
@@ -52,14 +48,8 @@
             }
         },
         methods: {
-            createRole: function createRole(){
-                // var _this = this
-                var input = this.role
-
-                axios.post('/roles/store', input).then(function (response) {
-                    this.role = { 'name': '' };
-                    this.getRoles();
-                });
+            addPost(){
+                console.log(this.post);
             }
         }
     }

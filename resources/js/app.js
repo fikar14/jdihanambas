@@ -16,6 +16,15 @@ Vue.use(Buefy);
 Vue.component('slug-widget', require('./components/Slug-widget.vue').default);
 Vue.component('role-create', require('./components/Role-create.vue').default);
 
+/**
+* Vue Router
+*
+* @link http://router.vuejs.org/en/installation.html
+*/
+// import Vue from 'vue'
+// import VueRouter from 'vue-router';
+// Vue.use(VueRouter);
+
 // const app = new Vue({
 //     el: '#app'
 // });
