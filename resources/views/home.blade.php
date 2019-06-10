@@ -1,7 +1,12 @@
 @extends('layouts.manage')
 
+@section('title')
+    Dashboard
+@endsection
+
 @section('content')
 
+  <div class="flex-container">
     <div class="columns">
         <div class="column is-10 is-offset-2 m-t-50">
             <h1 class="title m-b-5">Dashboard</h1>
@@ -48,6 +53,7 @@
             </div>
         </div>
     </div>
+  </div>
   
 
 @endsection

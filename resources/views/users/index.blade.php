@@ -24,8 +24,6 @@
                                 <th>Username</th>
                                 <th>Email</th>
                                 <th>Role</th>
-                                <th>Phone</th>
-                                <th>Avatar</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -41,14 +39,6 @@
                                     @foreach ($user->getRoleNames() as $role)
                                         {{ $role }}
                                     @endforeach
-                                </td>
-                                <td>{{ $user->phone }}</td>
-                                <td>
-                                    @if($user->avatar)
-                                        <img src="{{asset('storage/'.$user->avatar)}}" width="70px"/>
-                                    @else
-                                        N/A
-                                    @endif
                                 </td>
                                 <td>{{ $user->status }}</td>
                                 <td>
