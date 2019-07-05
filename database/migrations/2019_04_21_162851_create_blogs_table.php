@@ -19,7 +19,7 @@ class CreateBlogsTable extends Migration
             $table->string('slug')->unique();
             $table->longText('blog');
             $table->unsignedBigInteger('user_id');
-            $table->string('cover');
+            $table->string('cover')->nullable();
             $table->bigInteger('views')->default(0)->unsigned();
             $table->enum('status', ['PUBLISH', 'DRAFT']);
             $table->integer('updated_by')->nullable();

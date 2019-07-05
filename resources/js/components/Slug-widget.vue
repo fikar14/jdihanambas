@@ -28,7 +28,9 @@
         </div>
 
         <div class="url-wrapper wrapper">
-            <span class="root-url">{{url}}</span><span class="slug" v-show="slug && !isEditing">{{slug}}</span><input type="text" name="slug-edit" class="input is-small" v-show="isEditing" v-model="customSlug">
+            <span class="root-url">{{url}}</span>
+            <span class="slug" name="slug" v-show="slug && !isEditing">{{slug}}</span>
+            <input type="text" name="slug" class="input is-small" v-show="isEditing" v-model="customSlug">
         </div>
 
         <div class="button-wrapper wrapper">

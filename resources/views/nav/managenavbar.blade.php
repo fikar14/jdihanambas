@@ -20,7 +20,7 @@
                 <a class="has-submenu"><i class="fas fa-file-alt"></i> <span>Blog Posts</span>
                 </a>
                 <ul class="submenu">
-                  <li><a href="/blog/create"><i class="fas fa-plus-square"></i> <span>Add Post</span></a>
+                  <li><a href="/blogs/create"><i class="fas fa-plus-square"></i> <span>Add Post</span></a>
                   </li>
                   <li><a href="/blog"><i class="fas fa-list-alt"></i> <span>All Posts</span></a>
                   </li>

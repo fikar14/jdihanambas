@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/blog', 'BlogController');
+Route::resource('blogs', 'BlogController');
 
 Route::group(['prefix' => 'manage',  'middleware' => ['role:SuperAdministrator']], function() {
     Route::resource('users', 'UserController');

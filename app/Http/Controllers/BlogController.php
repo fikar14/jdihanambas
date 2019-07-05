@@ -47,27 +47,30 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         \Validator::make($request->all(),[
-            "title" => "required|min:5|max:100",
-            "slug" => "required|unique:users",
-            "blog" => "required",
-            "cover" => "required",
+            "title" => "required|min:2|max:100",
+            "blog" => "required"
             ])->validate();
 
         $blog = new Blog;
         $blog->title = $request->get('title');
-        $blog->slug = $request->get('slug');
         $blog->blog = $request->get('blog');
-
+        $blog->slug = $request->get('slug');
+        $blog->status = $request->get('save_action');
+        $blog->user_id = auth()->id();
+        
         $cover = $request->file('cover');
-
+        
         if($cover){
             $cover_path = $cover->store('book-covers', 'public');
             $blog->cover = $cover_path;
         }
+        
+        // $blog->slug = str_slug($request->get('title'));
+        $blog->save();
 
         if($request->get('save_action') == 'PUBLISH'){
         return redirect()
-            ->route('blogs.create')
+            ->route('home')
             ->with('status', 'Book successfully saved and published');
         } else {
         return redirect()
