@@ -22,7 +22,7 @@
 </style>
 
 <template>
-    <div class="slug-widget">
+    <div class="slug-widget" name="slug">
         <div class="icon-wrapper wrapper">
             <i class="fa fa-link"></i>
         </div>

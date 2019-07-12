@@ -25,7 +25,10 @@
                                     <input type="text" name="title" class="input" placeholder="Title" v-model="title">
                                 </p>
                             </div>
-                            <slug-widget url="{{url('/blog')}}/" :title="title" @slug-changed="updateSlug"></slug-widget>
+                            <div class="field">
+                                <slug-widget url="{{url('/blog')}}/" :title="title" @slug-changed="updateSlug"></slug-widget>
+                                <input type="hidden" v-model="slug" name="slug" />
+                            </div>
                             <br>
                             <b-field>
                                 <b-input type="textarea"
