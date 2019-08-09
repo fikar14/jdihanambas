@@ -22,7 +22,12 @@
 
 // FOOTER
 #dark-footer {
-    max-height: 280px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 80vh;
+    height: 40%;
+    width: 100%;
     background-color: #344258;
     color: whitesmoke;
 }

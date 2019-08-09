@@ -56,21 +56,18 @@
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">
                     <span class="icon"><i class="fa fa-book"></i></span>
-                    <span>Sakip</span> 
+                    <span>Produk</span> 
                 </a>
 
                 <div class="navbar-dropdown">
                     <a class="navbar-item">
-                        Rencana Strategis
+                        Peraturan Pemerintah Daerah
                     </a>
                     <a class="navbar-item">
-                        Indikator Kinerja Utama
+                        Peraturan Presiden
                     </a>
                     <a class="navbar-item">
-                        Perjanjian Kerja
-                    </a>
-                    <a class="navbar-item">
-                        Lakip
+                        Peraturan Bupati
                     </a>
                 </div>
             </div>

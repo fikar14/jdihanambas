@@ -1,5 +1,6 @@
 require('./bootstrap');
 require('./admin-menu');
+require('./home');
 require('@fortawesome/fontawesome-free');
 require('@fortawesome/fontawesome-free-solid');
 require('@fortawesome/fontawesome-free-regular');
