@@ -20,38 +20,20 @@
         <div class="navbar-menu" id="navMenu">
             <div class="navbar-start">
 
-            <a class="navbar-item" href="{{ route('home') }}">
+            <a class="navbar-item" href="/">
                 <span class="icon"><i class="fa fa-home"></i></span>
                 <span>Beranda</span>
             </a>
 
-            <a class="navbar-item">
+            <a class="navbar-item" href="/profile">
                 <span class="icon"><i class="fa fa-users"></i></span>
                 <span>Profil</span> 
             </a>
 
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">
-                    <span class="icon"><i class="fa fa-newspaper"></i></span>
-                    <span>Berita</span> 
-                </a>
-
-                <div class="navbar-dropdown">
-                    <a class="navbar-item">
-                        About
-                    </a>
-                    <a class="navbar-item">
-                        Jobs
-                    </a>
-                    <a class="navbar-item">
-                        Contact
-                    </a>
-                    <hr class="navbar-divider">
-                    <a class="navbar-item">
-                        Report an issue
-                    </a>
-                </div>
-            </div>
+            <a class="navbar-item" href="/berita">
+                <span class="icon"><i class="fa fa-newspaper"></i></span>
+                <span>Berita</span> 
+            </a>
 
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">
@@ -69,9 +51,12 @@
                     <a class="navbar-item">
                         Peraturan Bupati
                     </a>
+                    <a class="navbar-item">
+                        Peraturan Bupati
+                    </a>
                 </div>
             </div>
-            <a class="navbar-item">
+            <a class="navbar-item" href="/contact">
                 <span class="icon"><i class="far fa-envelope"></i></span>
                 <span>Kontak</span> 
             </a>

@@ -30,3 +30,6 @@ Route::group(['prefix' => 'manage',  'middleware' => ['role:SuperAdministrator']
         'edit', 'show', 'update'
     ]);
 });
+
+    Route::resource('profile', 'ProfileController');
+    Route::resource('contact', 'ContactController');
