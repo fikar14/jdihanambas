@@ -31,5 +31,6 @@ Route::group(['prefix' => 'manage',  'middleware' => ['role:SuperAdministrator']
     ]);
 });
 
-    Route::resource('profile', 'ProfileController');
-    Route::resource('contact', 'ContactController');
+Route::resource('profile', 'ProfileController');
+Route::resource('contact', 'ContactController');
+Route::resource('produk-hukum', 'ProkumController');

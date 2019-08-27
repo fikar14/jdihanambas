@@ -14,10 +14,10 @@
             </p>
             <ul class="menu-list">
               <li>
-                <a href="#"><i class="fas fa-tachometer-alt"></i> <span>Page</span></a>
+                <a href="#"><i class="fas fa-sticky-note"></i> <span>Page</span></a>
               </li>
               <li>
-                <a class="has-submenu"><i class="fas fa-file-alt"></i> <span>Blog Posts</span>
+                <a class="has-submenu"><i class="fas fa-list-alt"></i> <span>Blog Posts</span>
                 </a>
                 <ul class="submenu">
                   <li><a href="/blogs/create"><i class="fas fa-plus-square"></i> <span>Add Post</span></a>
@@ -27,7 +27,10 @@
                   <li><a href="/blog/category"><i class="fas fa-hashtag"></i> <span>Category</span></a>
                   </li>
                 </ul>
-              </li>              
+              </li> 
+              <li>
+                <a href="/produk-hukum/create"><i class="fas fa-gavel"></i> <span>Produk Hukum</span></a>
+              </li>             
             </ul>
             <p class="menu-label">
               Administration

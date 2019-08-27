@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
+use Spatie\Permission\Models\Role;
 
 class UsersTableSeeder extends Seeder
 {
@@ -11,11 +13,12 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\User::insert([
+        $user = User::insert([
             'name' => 'Zulfikar',
             'username' => 'fikar',
             'email' => 'ntn.fikar@gmail.com',
             'password' => bcrypt('12345678'),
         ]);
+
     }
 }
