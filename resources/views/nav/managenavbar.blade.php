@@ -14,7 +14,8 @@
             </p>
             <ul class="menu-list">
               <li>
-                <a href="#"><i class="fas fa-sticky-note"></i> <span>Page</span></a>
+                <a href="#"><i class="fas fa-sticky-note"></i>
+                   <span>Page</span></a>
               </li>
               <li>
                 <a class="has-submenu"><i class="fas fa-list-alt"></i> <span>Blog Posts</span>
@@ -53,10 +54,10 @@
               Settings
             </p>
             <ul class="menu-list">
-              <li><a> <i class="fas fa-newspaper"></i>
-                <span>News Update</span></a>
+              <li><a href="/manage/profile"> <i class="fas fa-newspaper"></i>
+                <span>Profile</span></a>
               </li>
-              <li><a><i class="fa fa-id-card-alt"></i>
+              <li><a href="/manage/contact"><i class="fa fa-id-card-alt"></i>
                 <span>Contact</span></a>
               </li>
               <li><a> <i class="fa fa-sign-out-alt"></i>

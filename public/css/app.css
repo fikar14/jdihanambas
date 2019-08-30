@@ -16178,6 +16178,38 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   padding-right: 100px !important;
 }
 
+.m-t-150 {
+  margin-top: 150px !important;
+}
+
+.p-t-150 {
+  padding-top: 150px !important;
+}
+
+.m-b-150 {
+  margin-bottom: 150px !important;
+}
+
+.p-b-150 {
+  padding-bottom: 150px !important;
+}
+
+.m-l-150 {
+  margin-left: 150px !important;
+}
+
+.p-l-150 {
+  padding-left: 150px !important;
+}
+
+.m-r-150 {
+  margin-right: 150px !important;
+}
+
+.p-r-150 {
+  padding-right: 150px !important;
+}
+
 .navbar {
   z-index: 0;
 }

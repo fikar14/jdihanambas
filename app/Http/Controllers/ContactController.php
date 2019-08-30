@@ -13,7 +13,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('settings.contact');
+        return view('contacts.index');
     }
 
     /**

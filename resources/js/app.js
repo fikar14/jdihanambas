@@ -14,6 +14,8 @@ import Buefy from 'buefy';
 
 Vue.use(Buefy);
 
+Vue.use( CKEditor );
+
 Vue.component('slug-widget', require('./components/Slug-widget.vue').default);
 Vue.component('role-create', require('./components/Role-create.vue').default);
 

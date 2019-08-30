@@ -19,7 +19,7 @@
     
         <div class="columns">
             <div class="column">
-                <form action="{{ route('produk-hukum.store') }}" method="post">
+                <form action="{{ route('produk-hukum.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="field">
                             <label for="">Jenis Produk Hukum</label>
@@ -49,24 +49,26 @@
                             </p>
                             <p class="alert alert-danger">{{ $errors->first('tahun') }}</p>
                         </div> 
+                        
                         <div class="field">
-                            <div class="file has-name">
-                                <label class="file-label">
-                                  <input class="file-input" type="file" name="file">
-                                  <span class="file-cta">
-                                    <span class="file-icon">
-                                      <i class="fas fa-upload"></i>
+
+                            <input name="fileupload" type="file" id="file" id="fileupload">
+
+
+                            {{-- <b-field class="file" name="fileupload" id="fileupload" >
+                                <b-upload v-model="file" name="fileupload" id="fileupload">
+                                    <a class="button is-primary">
+                                        <span class="file-icon">
+                                            <i class="fas fa-upload"></i>
+                                        </span>
+                                        <span>Click to upload</span>
+                                    </a>
+                                </b-upload>
+                                    <span class="file-name" v-if="file">
+                                        @{{ file.name }}
                                     </span>
-                                    <span class="file-label">
-                                      Choose a file…
-                                    </span>
-                                  </span>
-                                  <span class="file-name">
-                                    Screen Shot 2017-07-29 at 15.54.25.png
-                                  </span>
-                                </label>
-                            </div>           
-                        </div>           
+                            </b-field> --}}
+                        </div>
                         
                         <div class="field">
                             <button class="button is-success is-fullwidth">
@@ -79,4 +81,15 @@
     </div>
 </div>
 
+@endsection
+
+@section('scripts')
+<script>
+    var app= new Vue({
+        el:'#app',
+        data: {
+            file: ''
+        }
+    });
+</script>
 @endsection

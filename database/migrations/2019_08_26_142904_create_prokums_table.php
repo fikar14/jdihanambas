@@ -19,7 +19,7 @@ class CreateProkumsTable extends Migration
             $table->string('nomor');
             $table->string('judul');
             $table->string('tahun');
-            $table->string('file');
+            $table->string('fileupload');
             $table->timestamps();
         });
     }

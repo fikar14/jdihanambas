@@ -29,5 +29,8 @@
     </div>
     @include('nav.footer')
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="../node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+    <script src="../node_modules/@ckeditor/ckeditor5-vue/dist/ckeditor.js"></script>
+    @yield('scripts')
 </body>
 </html>

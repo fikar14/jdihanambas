@@ -58,7 +58,7 @@ class RoleController extends Controller
     public function show($id)
     {
         $role = Role::where('id', $id)->with('permissions')->first();
-        return view('roles.show', compact('role', 'permission'));
+        return view('roles.show', compact('role'));
     }
 
     /**
@@ -107,7 +107,6 @@ class RoleController extends Controller
         $role = Role::findOrFail($id);
         $role->delete();
 
-        return redirect()->route('roles.index')->with('status', 'Role
-        successfully delete');
+        return redirect()->route('roles.index')->with('status', 'Role successfully delete');
     }
 }
