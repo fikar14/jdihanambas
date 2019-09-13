@@ -35,6 +35,8 @@
         "buefy": "^0.7.10",
         "bulma": "^0.7.5",
         "slug": "^1.1.0",
+        "vee-validate": "^3.0.4",
+        "vue-ckeditor2": "^2.1.5",
         "watch": "^1.0.2"
     }
 }

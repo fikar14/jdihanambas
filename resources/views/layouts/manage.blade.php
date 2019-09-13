@@ -9,15 +9,13 @@
 
     <title>Smart Anambas | @yield("title")</title> 
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Anton|Archivo+Narrow|Dosis|Lato|Merriweather|Oswald|Roboto+Condensed|Source+Serif+Pro|Teko|Yanone+Kaffeesatz" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     @include('nav.navbar')
@@ -26,9 +24,7 @@
     <div id="app">
         @yield('content')
     </div>
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="../node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
-    <script src="../node_modules/@ckeditor/ckeditor5-vue/dist/ckeditor.js"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
     @yield('scripts')
 </body>
 </html>

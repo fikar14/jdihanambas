@@ -22,20 +22,13 @@
                     @csrf
                     <div class="columns">
                         <div class="column is-9">
-                            <div class="field">
-                                <p class="control">
-                                    <input type="text" name="title" class="input {{ $errors->has('title') ? 'is-invalid':'' }}" placeholder="Title">
-                                </p>
-                                <p class="alert alert-danger">{{ $errors->first('title') }}</p>
-                            </div>
-    
-                            <b-field>
-                                <b-input type="textarea"
-                                    name="profile"
-                                    rows="30"
-                                    placeholder="Content for Profile Company">
-                                </b-input>
+                            <b-field label="Title">
+                                    <b-input name="title" v-model="title"></b-input>
                             </b-field>
+
+                            <profile-page v-model="profile" @profile-changed="updateProfile"></profile-page>
+                            <input type="hidden" v-model="profile" name="profile" />
+
                         </div>
                         <div class="column is-3">
                                 <div class="card m-r-20">
@@ -61,6 +54,9 @@
                         </div>
                     </div>
                 </form>
+
+                
+
             </div>
         </div>
     </div>
@@ -69,13 +65,19 @@
 
 @section('scripts')
     <script>
-        var app = new Vue({
-            el:'#app',
-            data() {
-                return {
-
+        var app= new Vue({
+        el:'#app',
+        data() {
+            return {
+                title: '',
+                profile:''
+            }
+        },
+        methods: {
+                updateProfile: function(val){
+                    this.profile = val;
                 }
             }
-        });
+    });
     </script>
 @endsection
