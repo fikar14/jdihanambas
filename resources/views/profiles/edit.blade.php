@@ -30,15 +30,17 @@
                                 </p>
                                 <p class="alert alert-danger">{{ $errors->first('title') }}</p>
                             </div>
-    
-                            <b-field>
+                            
+                            <textarea class="textarea" name="profile" id="profile" rows="30" value="{{old('profile') ? old('profile') : $profile->profile}}"></textarea>
+                            {{-- <b-field>
                                 <b-input type="textarea"
                                     name="profile"
+                                    id="profile"
                                     rows="30"
                                     placeholder="Content for Profile Company"
                                     value="{{old('profile') ? old('profile') : $profile->profile}}">
                                 </b-input>
-                            </b-field>
+                            </b-field> --}}
                         </div>
                         <div class="column is-3">
                                 <div class="card m-r-20">
@@ -71,14 +73,28 @@
 @endsection
 
 @section('scripts')
+
     <script>
+        CKEDITOR.replace( 'profile' );
+    </script>
+
+    {{-- <script>
         var app = new Vue({
             el:'#app',
             data() {
                 return {
-
+                    title: '',
+                    profile: CKEDITOR.replace( 'profile' ),
+                }
+            },
+            mounted() {
+                this.makeEditor();
+            },
+            methods: {
+                makeEditor(){
+                    this.profile = CKEDITOR.replace('profile');
                 }
             }
         });
-    </script>
+    </script> --}}
 @endsection

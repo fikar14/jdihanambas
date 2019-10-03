@@ -57,15 +57,23 @@ class BlogController extends Controller
         $blog->slug = $request->get('slug');
         $blog->status = $request->get('save_action');
         $blog->user_id = auth()->id();
-        
-        $cover = $request->file('cover');
-        
-        if($cover){
-            $cover_path = $cover->store('book-covers', 'public');
-            $blog->cover = $cover_path;
+
+        if($request->hasFile('cover')) {
+            // Get filename with extension            
+            $filenameWithExt = $request->file('cover')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);            
+            // Get just ext
+            $extension = $request->file('cover')->getClientOriginalExtension();
+            //Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;                       
+            // Upload Image
+            $path = $request->file('cover')->storeAs('public/blog-covers', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'nofile';
         }
-        
-        // $blog->slug = str_slug($request->get('title'));
+
+        $blog->cover = $fileNameToStore;
         $blog->save();
 
         if($request->get('save_action') == 'PUBLISH'){

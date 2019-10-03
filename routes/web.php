@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -33,4 +29,12 @@ Route::group(['prefix' => 'manage',  'middleware' => ['role:SuperAdministrator']
     Route::resource('contact', 'ContactController');
 });
 
-Route::resource('produk-hukum', 'ProkumController');
+Route::resource('produkhukum', 'ProkumController');
+
+Route::get('/', 'PageController@welcome')->name('welcome');
+Route::get('/profile', 'PageController@profile')->name('profile');
+Route::get('/berita', 'PageController@berita')->name('berita');
+Route::get('/kontak', 'PageController@kontak')->name('kontak');
+
+// Route::get('/produk-hukum/search', 'PageController@search');
+Route::get('/produk-hukum', 'PageController@prokum')->name('produk-hukum');

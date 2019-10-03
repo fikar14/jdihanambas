@@ -20,17 +20,16 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    @include('nav.navbar')
-    @include('nav.adminmenu')
-
-    <div id="app">
-        
-        @yield('content')
+    
+    <div class="flex-container mx-auto">
+        <div id="app">
+            @include('nav.navbar')
+            @include('nav.adminmenu')
+            @yield('content')
+            @include('nav.footer')
+        </div>
     </div>
-    @include('nav.footer')
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="../node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
-    <script src="../node_modules/@ckeditor/ckeditor5-vue/dist/ckeditor.js"></script>
     @yield('scripts')
 </body>
 </html>

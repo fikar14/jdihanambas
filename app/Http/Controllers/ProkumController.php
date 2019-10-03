@@ -8,6 +8,16 @@ use App\Prokum;
 class ProkumController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -24,7 +34,9 @@ class ProkumController extends Controller
      */
     public function create()
     {
-        return view('produkhukum.create');
+        $prokum = Prokum::latest()->paginate(10);
+
+        return view('produkhukum.create', ['prokum'=>$prokum]);
     }
 
     /**
@@ -42,30 +54,30 @@ class ProkumController extends Controller
             "tahun" => "required|min:4|max:100",
             ])->validate();
 
-            $uploadedFile = $request->file('fileupload');
-            $path = $uploadedFile->store('public/produk-hukum');
+            if($request->hasFile('fileupload')) {
+                // Get filename with extension            
+                $filenameWithExt = $request->file('fileupload')->getClientOriginalName();
+                // Get just filename
+                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);            
+                // Get just ext
+                $extension = $request->file('fileupload')->getClientOriginalExtension();
+                //Filename to store
+                $fileNameToStore = $filename.'_'.time().'.'.$extension;                       
+                // Upload Image
+                $path = $request->file('fileupload')->storeAs('public/prokum', $fileNameToStore);
+            } else {
+                $fileNameToStore = 'nofile';
+            }
 
             $prokum = Prokum::firstOrCreate([
                 'jenis' => $request->jenis,
                 'nomor' => $request->nomor,
                 'judul' => $request->judul,
                 'tahun' => $request->tahun,
-                'fileupload' => $path,
+                'fileupload' => $fileNameToStore,
             ]);
-
-            // $prokum = new Prokum;
-            // $prokum->jenis = $request->get('jenis');
-            // $prokum->nomor = $request->get('nomor');
-            // $prokum->judul = $request->get('judul');
-            // $prokum->tahun = $request->get('tahun');
             
-            // if($request->file('fileupload')){
-            // $file = $request->file('fileupload')->store('produk-hukum', 'public');
-            // $prokum->fileupload = $file;
-            // }
-
-            // $prokum->save();
-            return redirect()->route('roles.index')->with(['success', 'Produk Hukum berhasil ditambahkan']);
+            return redirect()->route('produkhukum.create')->with('status', 'Produk Hukum Berhasil ditambahkan');
     }
 
     /**

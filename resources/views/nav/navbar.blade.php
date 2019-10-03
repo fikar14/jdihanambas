@@ -3,7 +3,7 @@
         <nav class="navbar is-link is-fixed-top" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
-            <img src="{{ asset('images/smart-anambas.png') }}" width="180">
+            <img src="{{ asset('images/JDIH.png') }}" width="180">
             </a>
             <a class="navbar-item" id="admin-slideout-button">
                 <span class="icon"><i class="fa fa-arrow-alt-circle-right"></i></span>
@@ -21,21 +21,22 @@
             <div class="navbar-start">
 
             <a class="navbar-item" href="/">
-                <span class="icon"><i class="fa fa-home"></i></span>
                 <span>Beranda</span>
             </a>
 
             <a class="navbar-item" href="/profile">
-                <span class="icon"><i class="fa fa-users"></i></span>
                 <span>Profil</span> 
             </a>
 
             <a class="navbar-item" href="/berita">
-                <span class="icon"><i class="fa fa-newspaper"></i></span>
                 <span>Berita</span> 
             </a>
 
-            <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-item" href="/produk-hukum">
+                <span>Produk Hukum</span> 
+            </a>
+
+            {{-- <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">
                     <span class="icon"><i class="fa fa-book"></i></span>
                     <span>Produk</span> 
@@ -55,9 +56,8 @@
                         Peraturan Bupati
                     </a>
                 </div>
-            </div>
-            <a class="navbar-item" href="/contact">
-                <span class="icon"><i class="far fa-envelope"></i></span>
+            </div> --}}
+            <a class="navbar-item" href="/kontak">
                 <span>Kontak</span> 
             </a>
         </div>
@@ -79,9 +79,9 @@
                         {{ Auth::user()->name }}
                     </a>
                     <div class="navbar-dropdown">
-                        <a class="navbar-item">
+                        <a class="navbar-item" href="/home">
                             <span class="icon m-r-5"><i class="fa fa-address-card"></i></span>
-                            About
+                            Dashboard
                         </a>
                         <a class="navbar-item">
                             <span class="icon m-r-5"><i class="fa fa-user"></i></span>

@@ -1,4 +1,4 @@
-<footer id="dark-footer" class="footer">
+<footer class="footer has-background-dark m-t-50">
     <div class="container">
         <div class="columns">
         <div class="column">

@@ -19,7 +19,7 @@
     
         <div class="columns">
             <div class="column">
-                <form action="{{ route('produk-hukum.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('produkhukum.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="field">
                             <label for="">Jenis Produk Hukum</label>
@@ -51,23 +51,7 @@
                         </div> 
                         
                         <div class="field">
-
-                            <input name="fileupload" type="file" id="file" id="fileupload">
-
-
-                            {{-- <b-field class="file" name="fileupload" id="fileupload" >
-                                <b-upload v-model="file" name="fileupload" id="fileupload">
-                                    <a class="button is-primary">
-                                        <span class="file-icon">
-                                            <i class="fas fa-upload"></i>
-                                        </span>
-                                        <span>Click to upload</span>
-                                    </a>
-                                </b-upload>
-                                    <span class="file-name" v-if="file">
-                                        @{{ file.name }}
-                                    </span>
-                            </b-field> --}}
+                            <input name="fileupload" type="file" id="fileupload">
                         </div>
                         
                         <div class="field">
@@ -76,6 +60,52 @@
                             </button>
                         </div>
                     </form>  
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column">
+                <div class="card-content">
+                    <table class="table is-narrow is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>Jenis Produk Hukum</th>
+                                <th>Nomor</th>
+                                <th>Judul</th>
+                                <th>Tahun</th>
+                                <th>Diposting tanggal</th>
+                                <th>Dokumen</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($prokum as $hukum)
+                            <tr>
+                                <td>{{ $hukum->jenis }}</td>
+                                <td>{{ $hukum->nomor }}</td>
+                                <td>{{ $hukum->judul }}</td>
+                                <td>{{ $hukum->tahun }}</td>
+                                <td>{{date('d F Y', strtotime($hukum->created_at))}}</td>
+                                <td>
+                                    @if($hukum->fileupload)
+                                        <a href="{{ asset('storage/prokum/'.$hukum->fileupload) }}" target="_blank">{{ $hukum->fileupload }}</a></td>
+                                    @else
+                                        File Kosong 
+                                    @endif
+                                <td>
+                                    <div class="columns">
+                                        <div class="column is-1 m-r-15">
+                                            <a class="button is-success is-small" href="#"><i class="fas fa-eye"></i></a>
+                                        </div>
+                                        <div class="column is-1">
+                                            <a class="button is-danger is-small" href="#"><i class="far fa-trash-alt"></i></a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr> 
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

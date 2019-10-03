@@ -30,7 +30,7 @@
                 </ul>
               </li> 
               <li>
-                <a href="/produk-hukum/create"><i class="fas fa-gavel"></i> <span>Produk Hukum</span></a>
+                <a href="/produkhukum/create"><i class="fas fa-gavel"></i> <span>Produk Hukum</span></a>
               </li>             
             </ul>
             <p class="menu-label">

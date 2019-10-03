@@ -8,10 +8,14 @@ class Blog extends Model
 {
 
     protected $fillable = [
-        'title', 'blog', 'user_id'
+        'title', 'blog', 'user_id', 'cover'
     ];
 
     public function user(){
         return $this->belongsTo('App\User');
     }
+
+    public function blogcategories(){
+		return $this->belongsToMany('App\BlogCategory');
+	}
 }

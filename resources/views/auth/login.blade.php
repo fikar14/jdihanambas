@@ -12,15 +12,15 @@
                         @csrf
 
                         <div class="field">
-                            <label for="email" class="label">Email</label>
+                            <label for="username" class="label">Username</label>
                             <p class="control has-icons-left">
-                            <input class="input {{$errors->has('email') ? 'is-danger' : ''}}" type="text" name="email" id="email" placeholder="name@example.com" value="{{old('email')}}">
+                            <input class="input {{$errors->has('username') ? 'is-danger' : ''}}" type="text" name="username" id="username" placeholder="username" value="{{old('username')}}">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>
                             </span>
                             </p>
-                            @if ($errors->has('email'))
-                            <p class="help is-danger">{{$errors->first('email')}}</p>
+                            @if ($errors->has('username'))
+                            <p class="help is-danger">{{$errors->first('username')}}</p>
                             @endif
                         </div>
 
