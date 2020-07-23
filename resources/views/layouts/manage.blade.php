@@ -18,14 +18,13 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    @include('nav.navbar')
-    @include('nav.managenavbar')
-
+    
     <div id="app">
+        @include('nav.navbar')
+        @include('nav.managenavbar')
         @yield('content')
     </div>
     <script src="{{ mix('js/app.js') }}"></script>
-    <script src="https://cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
     @yield('scripts')
 </body>
 </html>

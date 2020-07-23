@@ -39,6 +39,7 @@
             <button class="button is-small" v-show="isEditing" @click.prevent="resetSlug">Reset</button>
         </div>
     </div>
+
 </template>
 
 <script>

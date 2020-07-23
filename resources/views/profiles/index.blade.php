@@ -19,36 +19,61 @@
                 @endif
         
                 <div class="columns">
-                    <div class="column is-9">
-                        <div class="field">
-                            <h3 class="title is-size-4">{{ $profile->title }}</h2>
-                        </div>
-                        <div class="field m-t-20">
-                            {{ $profile->profile }}
-                        </div>
-
-                    </div>
-                    <div class="column is-3">
-                        <div class="card m-r-20">
-                            <div class="card-content">
-                                <div class="media">
-                                    <div class="media-left">
-                                    <figure class="image is-48x48">
-                                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                                    </figure>
+                    <div class="column is-12">
+                        <section>
+                            <form action="{{ route('profile.update', $profile->id) }}" 
+                                method="post" 
+                                enctype="multipart/form-data"
+                            >
+                                @csrf
+                                @method('PUT')                                                       
+                                <b-collapse
+                                        aria-id="contentIdForA11y2"
+                                        class="panel"
+                                        :open.sync="isOpen">
+                                    <div
+                                        slot="trigger"
+                                        class="panel-heading"
+                                        role="button"
+                                        aria-controls="contentIdForA11y2">
+                                        <strong>Edit Profile JDIH</strong>
                                     </div>
-                                    <div class="media-content">
-                                        <p class="title is-5">Zulfikar</p>
-                                        <p class="subtitle is-6">@fikar14</p>
-                                    </div>
-                                </div>
-                                <div class="columns is-variable is-1">
-                                    <div class="column is-full publish-button">
-                                        <a href="{{route('profile.edit', ['id' => $profile->id])}}" class="button is-success is-fullwidth"></i>Edit</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>                            
+                                    <b-tabs>
+                                        {{-- <b-tab-item label="Visi">
+                                            <blog-post :profile="profile" @profile-changed="updateProfile"></blog-post>
+                                            <input type="hidden" v-model="visi" name="visi" />
+                                        </b-tab-item> --}}
+                                        <b-tab-item label="Visi">
+                                            <textarea class="textarea" rows="20" name="visi">{{ $profile->visi }}</textarea>
+                                        </b-tab-item>                       
+                                        <b-tab-item label="Misi">
+                                            <textarea class="textarea" rows="20" name="misi">{{ $profile->misi }}</textarea>
+                                        </b-tab-item>
+                                        <b-tab-item label="Tugas Pokok">
+                                            <textarea class="textarea" rows="20" name="tugaspokok">{{ $profile->tugaspokok }}</textarea>
+                                        </b-tab-item>
+                                        <b-tab-item label="Tujuan">
+                                            <textarea class="textarea" rows="20" name="tujuan">{{ $profile->tujuan }}</textarea>
+                                        </b-tab-item>
+                                        <b-tab-item label="Fungsi">
+                                            <textarea class="textarea" rows="20" name="fungsi">{{ $profile->fungsi }}</textarea>
+                                        </b-tab-item>                                     
+                                        <b-tab-item label="Struktur Organisasi">
+                                            <input name="struktur" type="file" id="struktur" value="{{ $profile->struktur }}"><br>
+                                            {{ $profile->struktur }}
+                                        </b-tab-item>
+                                        <b-tab-item label="SOP">
+                                            <textarea class="textarea" rows="20" name="sop">{{ $profile->sop }}</textarea>
+                                        </b-tab-item>
+                                    </b-tabs>
+                                </b-collapse>
+                                <div class="block">                                    
+                                    <button class="button is-link">
+                                        Simpan
+                                    </button>
+                                </div> 
+                            </form>                    
+                        </section>  
                     </div>
                 </div>
             </div>
@@ -61,9 +86,13 @@
     <script>
         var app = new Vue({
             el:'#app',
-            data() {
-                return {
-
+            data: {
+                isOpen: false,
+                profile: 'apalah bro',
+            },
+            methods: {
+                updateProfile: function(val){
+                    this.profile = val;
                 }
             }
         });

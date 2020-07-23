@@ -3,12 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'ASIS') }}</title>
-
+    <title>JDIH | @yield("title")</title> 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -25,7 +26,8 @@
         <div id="app">
             @include('nav.navbar')
             @include('nav.adminmenu')
-            @yield('content')
+            @yield('content')            
+
             @include('nav.footer')
         </div>
     </div>

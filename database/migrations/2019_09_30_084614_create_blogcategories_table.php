@@ -17,6 +17,7 @@ class CreateBlogcategoriesTable extends Migration
             $table->bigIncrements('id');
             $table->string("name");
             $table->string("slug")->unique();
+            $table->string('cover')->nullable();
             $table->integer("created_by");
             $table->integer("updated_by")->nullable();
             $table->integer("deleted_by")->nullable();

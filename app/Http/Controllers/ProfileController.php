@@ -15,7 +15,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $profile = Profile::first();
+        $profile = Profile::findOrFail(1);
+        // return response()->json(['profile' => $profile], 200);
         return view('profiles.index', compact('profile'));
     }
 
@@ -26,7 +27,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        return view('profiles.create');
+        //
     }
 
     /**
@@ -37,17 +38,7 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        \Validator::make($request->all(),[
-            "title"   => "required|min:4|max:100",
-            "profile" => "required|min:50",
-        ])->validate();
-        
-        $profile = Profile::firstOrCreate([
-            "title"     => $request->title,
-            "profile"   => $request->profile,
-        ]);
-
-        return redirect()->route('profile.create')->with(['success', 'Profile berhasil disimpan']);
+        //
 
     }
 
@@ -59,7 +50,7 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        //
+       //
     }
 
     /**
@@ -70,8 +61,8 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        $profile = Profile::findOrFail($id);
-        return view('profiles.edit', compact('profile'));
+        // $profile = Profile::findOrFail($id);
+        // return view('profiles.edit', compact('profile'));
     }
 
     /**
@@ -83,18 +74,37 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        \Validator::make($request->all(),[
-            "title"   => "required|min:4|max:100",
-            "profile" => "required|min:50",
-        ])->validate();
+        // \Validator::make($request->all(),[
+        //     "title"   => "required|min:4|max:100",
+        //     "profile" => "required|min:50",
+        // ])->validate();
         
         $profile = Profile::findOrFail($id);
-        $profile->title = $request->get('title');
-        $profile->profile = $request->get('profile');
+        $profile->visi = $request->get('visi');
+        $profile->misi = $request->get('misi');
+        $profile->tugaspokok = $request->get('tugaspokok');
+        $profile->tujuan = $request->get('tujuan');
+        $profile->fungsi = $request->get('fungsi');
+
+        if($request->hasFile('struktur')) {
+            // Get filename with extension            
+            $filenameWithExt = $request->file('struktur')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);            
+            // Get just ext
+            $extension = $request->file('struktur')->getClientOriginalExtension();
+            //Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;                       
+            // Upload Image
+            $path = $request->file('struktur')->storeAs('public/profile', $fileNameToStore);
+            $profile->struktur = $fileNameToStore;
+        }
+        
+        $profile->sop = $request->get('sop');
 
         $profile->save();
 
-        return redirect()->route('profile.index')->with(['success', 'Profile berhasil disimpan']);
+        return redirect()->route('profile.index')->with(['success', 'Profile berhasil diedit']);
     }
 
     /**

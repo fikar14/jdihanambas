@@ -42,4 +42,8 @@ class User extends Authenticatable
     public function blogs(){
         return $this->hasMany('App\Blog');
     }
+
+    public function blogcategories(){
+        return $this->hasMany('App\BlogCategory');
+    }
 }

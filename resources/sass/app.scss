@@ -1,20 +1,25 @@
+//Fonts
+@import url("https://fonts.googleapis.com/css?family=Alata|Anton|Fredoka+One|Lobster+Two|Noto+Sans+JP|Playball|Righteous|Yanone+Kaffeesatz&display=swap");
 
-// Fonts
-// @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://use.fontawesome.com/releases/v5.3.1/js/all.js");
+
+@import url("https://cdn.materialdesignicons.com/2.5.94/css/materialdesignicons.min.css");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bulma
-@import 'node_modules/bulma/bulma';
+@import "node_modules/bulma/bulma";
 
 //Bulma Vue Modules
-@import 'node_modules/buefy/src/scss/buefy.scss';
+@import "node_modules/buefy/src/scss/buefy.scss";
 
 //Custum SASS
-@import 'styles';
-@import 'helpers';
-@import 'overrides';
-@import 'adminmenu';
-@import 'managemenu';
-@import 'home';
+@import "styles";
+@import "helpers";
+@import "overrides";
+@import "adminmenu";
+@import "managemenu";
+@import "home";
+@import "blog";
+@import "profile";

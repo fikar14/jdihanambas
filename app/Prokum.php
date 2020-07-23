@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Prokum extends Model
 {
     protected $fillable = [
-        'jenis', 'nomor', 'judul', 'tahun', 'fileupload'
+        'desa', 'nomor', 'judul', 'tahun', 'fileupload'
     ];
 }

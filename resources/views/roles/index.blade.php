@@ -40,7 +40,8 @@
                         </footer>
                     </div>
                 </form>
-            </div> {{-- End of Modal --}}
+            </div> 
+            {{-- End of Modal --}}
         
             <div class="card m-b-10">
                 <div class="card-content">

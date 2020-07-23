@@ -19,6 +19,7 @@ class CreateBlogsTable extends Migration
             $table->string('slug')->unique();
             $table->longText('blog');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('category_id');
             $table->string('cover')->nullable();
             $table->bigInteger('views')->default(0)->unsigned();
             $table->enum('status', ['PUBLISH', 'DRAFT']);
@@ -28,6 +29,7 @@ class CreateBlogsTable extends Migration
             $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('blogcategories');
         });
     }
 

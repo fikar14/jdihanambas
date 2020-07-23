@@ -15,11 +15,12 @@ class CreateProkumsTable extends Migration
     {
         Schema::create('prokums', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('jenis');
             $table->string('nomor');
-            $table->string('judul');
             $table->string('tahun');
+            $table->string('desa');
+            $table->string('judul');
             $table->string('fileupload');
+            $table->bigInteger('downloaded')->default(0)->unsigned();
             $table->timestamps();
         });
     }

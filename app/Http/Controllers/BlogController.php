@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Blog;
 use Session;
+use App\BlogCategory;
 
 class BlogController extends Controller
 {
@@ -25,7 +26,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('blogs.index');
+        $blogs = Blog::latest()->paginate(10);
+        return view('blogs.index', ['blogs'=>$blogs]);
     }
 
     /**
@@ -35,7 +37,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('blogs.create');
+        $blogcategories = BlogCategory::orderBy('name', 'ASC')->get();
+        return view('blogs.create', compact('blogcategories'));
     }
 
     /**
@@ -51,12 +54,16 @@ class BlogController extends Controller
             "blog" => "required"
             ])->validate();
 
+        $blogcategories = BlogCategory::find(1);
+
         $blog = new Blog;
         $blog->title = $request->get('title');
         $blog->blog = $request->get('blog');
         $blog->slug = $request->get('slug');
         $blog->status = $request->get('save_action');
         $blog->user_id = auth()->id();
+        $blog->category_id = $request->get('category_id');
+        
 
         if($request->hasFile('cover')) {
             // Get filename with extension            
@@ -78,11 +85,11 @@ class BlogController extends Controller
 
         if($request->get('save_action') == 'PUBLISH'){
         return redirect()
-            ->route('home')
+            ->route('blogs.index')
             ->with('status', 'Book successfully saved and published');
         } else {
         return redirect()
-            ->route('blogs.create')
+            ->route('blogs.index')
             ->with('status', 'Book saved as draft');
         }
     }
